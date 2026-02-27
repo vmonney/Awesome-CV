@@ -41,7 +41,7 @@ If your fork uses `main` instead of `master` upstream, replace accordingly.
 ## 5) Build your custom resumes
 
 ```bash
-make resumes
+make resumes-docker
 ```
 
 Generated PDFs are written to `build/`.
