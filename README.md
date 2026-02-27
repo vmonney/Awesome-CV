@@ -81,19 +81,43 @@ If you don't want to install the dependencies on your system, this can also be o
 
 #### Usage
 
-At a command prompt, run
+**Important:** Run all commands from the root of the `Awesome-CV` folder.
 
+##### Using Docker (recommended - no installation required)
+
+**Bash / Zsh:**
 ```bash
-xelatex {your-cv}.tex
+# Build the resume
+docker run --rm -i -w "/doc" -v "$PWD:/doc" texlive/texlive:latest xelatex -output-directory=examples examples/resume.tex
 ```
 
-Or using docker:
-
-```bash
-docker run --rm --user $(id -u):$(id -g) -i -w "/doc" -v "$PWD":/doc texlive/texlive:latest make
+**Nushell:**
+```nu
+# Build the resume
+docker run --rm -i -w "/doc" -v $"($env.PWD):/doc" texlive/texlive:latest xelatex -output-directory=examples examples/resume.tex
 ```
 
-In either case, this should result in the creation of ``{your-cv}.pdf``
+**PowerShell:**
+```powershell
+# Build the resume
+docker run --rm -i -w "/doc" -v "${PWD}:/doc" texlive/texlive:latest xelatex -output-directory=examples examples/resume.tex
+```
+
+##### Using local LaTeX installation
+
+If you have TeX Live installed locally:
+
+```bash
+cd examples
+xelatex resume.tex
+```
+
+##### Output
+
+The generated PDF will be in the `examples/` folder:
+- `examples/resume.pdf`
+- `examples/cv.pdf`
+- `examples/coverletter.pdf`
 
 
 ## Credit
