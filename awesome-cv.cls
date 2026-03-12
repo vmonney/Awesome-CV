@@ -81,9 +81,9 @@
 \defaultfontfeatures{
   Renderer=HarfBuzz,
 }
-\setmainfont{SourceSansPro}[
+\setmainfont{SourceSans3}[
   Extension=.otf,
-  Path=/usr/local/texlive/2025/texmf-dist/fonts/opentype/adobe/sourcesanspro/,
+  Path=/usr/local/texlive/2026/texmf-dist/fonts/opentype/adobe/sourcesans/,
   UprightFont=*-Regular,
   ItalicFont=*-RegularIt,
   BoldFont=*-Bold,
@@ -91,9 +91,9 @@
   FontFace={l}{n}{Font=*-Light},
   FontFace={l}{it}{Font=*-LightIt},
 ]
-\setsansfont{SourceSansPro}[
+\setsansfont{SourceSans3}[
   Extension=.otf,
-  Path=/usr/local/texlive/2025/texmf-dist/fonts/opentype/adobe/sourcesanspro/,
+  Path=/usr/local/texlive/2026/texmf-dist/fonts/opentype/adobe/sourcesans/,
   UprightFont=*-Regular,
   ItalicFont=*-RegularIt,
   BoldFont=*-Bold,
@@ -103,7 +103,7 @@
 ]
 \newfontfamily\roboto{Roboto}[
   Extension=.otf,
-  Path=/usr/local/texlive/2025/texmf-dist/fonts/opentype/google/roboto/,
+  Path=/usr/local/texlive/2026/texmf-dist/fonts/opentype/google/roboto/,
   UprightFont=*-Regular,
   ItalicFont=*-Italic,
   BoldFont=*-Bold,
