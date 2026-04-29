@@ -34,15 +34,6 @@
 
 **Awesome CV** is LaTeX template for a **CV(Curriculum Vitae)**, **Résumé** or **Cover Letter** inspired by [Fancy CV](https://www.sharelatex.com/templates/cv-or-resume/fancy-cv). It is easy to customize your own template, especially since it is really written by a clean, semantic markup.
 
-
-## Donate
-
-Please help keep this project alive! Donations are welcome and will go towards further development of this project.
-
-    PayPal: paypal.me/posquit0
-
-*Thank you for your support!*
-
 ## Preview
 
 #### Résumé
@@ -70,54 +61,95 @@ You can see [PDF](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/e
 **_Note:_ Above services do not guarantee up-to-date source code of Awesome CV**
 
 
-## How to Use
+## How to Use (This Fork)
 
-#### Requirements
-
-A full TeX distribution is assumed.  [Various distributions for different operating systems (Windows, Mac, \*nix) are available](http://tex.stackexchange.com/q/55437) but TeX Live is recommended.
-You can [install TeX from upstream](https://tex.stackexchange.com/q/1092) (recommended; most up-to-date) or use `sudo apt-get install texlive-full` if you really want that.  (It's generally a few years behind.)
-
-If you don't want to install the dependencies on your system, this can also be obtained via [Docker](https://docker.com).
-
-#### Usage
+This fork keeps upstream Awesome-CV examples and adds custom resume variants.
 
 **Important:** Run all commands from the root of the `Awesome-CV` folder.
 
-##### Using Docker (recommended - no installation required)
+### Requirements
 
-**Bash / Zsh:**
-```bash
-# Build the resume
-docker run --rm -i -w "/doc" -v "$PWD:/doc" texlive/texlive:latest xelatex -output-directory=examples examples/resume.tex
-```
+- Local: XeLaTeX (`xelatex`) installed (TeX Live recommended), or
+- Docker: use `texlive/texlive:latest` through the Makefile targets
 
-**Nushell:**
-```nu
-# Build the resume
-docker run --rm -i -w "/doc" -v $"($env.PWD):/doc" texlive/texlive:latest xelatex -output-directory=examples examples/resume.tex
-```
-
-**PowerShell:**
-```powershell
-# Build the resume
-docker run --rm -i -w "/doc" -v "${PWD}:/doc" texlive/texlive:latest xelatex -output-directory=examples examples/resume.tex
-```
-
-##### Using local LaTeX installation
-
-If you have TeX Live installed locally:
+### Build Commands (current workflow)
 
 ```bash
-cd examples
-xelatex resume.tex
+# Upstream-style examples (resume/cv/coverletter)
+make examples
+
+# Custom resume variants (Data Engineer / Data Analyst in EN+FR)
+make resumes
+
+# Same custom resumes via Docker
+make resumes-docker
+
+# Build custom cover letter variant in build/artifacts
+make coverletters-docker
 ```
 
-##### Output
+### Where files are generated
 
-The generated PDF will be in the `examples/` folder:
-- `examples/resume.pdf`
-- `examples/cv.pdf`
-- `examples/coverletter.pdf`
+- Build artifacts: `build/artifacts/`
+- Deliverables for applications: `build/deliverables/<company>/`
+- Cover letter source for applications: `examples/coverletter_custom.tex`
+- Upstream cover letter example kept as reference: `examples/coverletter.tex`
+
+### Which CV should I send?
+
+Choose the variant based on role and language:
+
+- `resume_de_en.pdf` -> Data Engineer (English)
+- `resume_de_fr.pdf` -> Data Engineer (French)
+- `resume_da_en.pdf` -> Data Analyst (English)
+- `resume_da_fr.pdf` -> Data Analyst (French)
+
+If unsure, start with:
+
+- technical/data-platform jobs: `resume_de_en.pdf` (or `resume_de_fr.pdf`)
+- analytics/BI-focused jobs: `resume_da_en.pdf` (or `resume_da_fr.pdf`)
+
+### Generate CV + cover letter for one company
+
+Use the bundled targets to create a company delivery folder with company-specific filenames.
+You can now choose the CV variant with `RESUME_VARIANT`:
+
+- `de_en` (Data Engineer, EN)
+- `de_fr` (Data Engineer, FR)
+- `da_en` (Data Analyst, EN)
+- `da_fr` (Data Analyst, FR)
+
+```bash
+# Creates:
+# build/deliverables/<COMPANY>/<COMPANY>_resume.pdf
+# build/deliverables/<COMPANY>/<COMPANY>_coverletter.pdf
+make send-bundle-docker COMPANY=acme RESUME_VARIANT=de_en
+```
+
+You can also run each step separately:
+
+```bash
+make send-resume-docker COMPANY=acme RESUME_VARIANT=da_fr
+make send-coverletter-docker COMPANY=acme
+```
+
+To use another cover letter source without changing the Makefile:
+
+```bash
+make send-coverletter-docker COMPANY=acme COVERLETTER_SOURCE=examples/my_coverletter.tex
+```
+
+### Source layout
+
+- Upstream reference resume: `examples/resume.tex` + `examples/resume/`
+- Upstream reference cover letter: `examples/coverletter.tex`
+- Custom content: `examples/resume_custom/`
+- Custom entry points:
+  - `examples/resume_de_en.tex`
+  - `examples/resume_de_fr.tex`
+  - `examples/resume_da_en.tex`
+  - `examples/resume_da_fr.tex`
+  - `examples/coverletter_custom.tex`
 
 
 ## Credit

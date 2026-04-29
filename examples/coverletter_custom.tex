@@ -1,0 +1,52 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+\documentclass[11pt, a4paper]{awesome-cv}
+
+\input{examples/resume_custom/shared/setup.tex}
+\input{examples/resume_custom/shared/profile.tex}
+\makeatletter
+\let\@linkedin\undefined
+\makeatother
+\photo[circle,noedge,left]{examples/resume_custom/shared/photo}
+\position{Data Engineer{\enskip\cdotp\enskip}OGD Lead}
+
+%-------------------------------------------------------------------------------
+% Letter information
+%-------------------------------------------------------------------------------
+\recipient
+  {Eidgenoessische Finanzmarktaufsicht FINMA}
+  {~}
+\letterdate{Fribourg, le 29 avril 2026}
+\lettertitle{Candidature au poste d'Erfahrener Data Analyst Finanzmarktaufsicht (m/w/d)}
+\letteropening{Madame Barrios,}
+\letterclosing{Je vous adresse, Madame Barrios, mes salutations les meilleures.}
+\letterenclosure[Annexe]{Curriculum Vitae}
+
+\begin{document}
+
+\makecvheader[R]
+\makecvfooter
+  {29 avril 2026}
+  {Valentin Monney~~~·~~~Lettre de motivation}
+  {}
+
+\makelettertitle
+
+\begin{cvletter}
+
+\lettersection{A mon sujet}
+Data Scientist et OGD Lead au Service de la statistique et de la donn\'ee du canton de Fribourg, je porte depuis trois ans et demi la plateforme cantonale de donn\'ees ouvertes (113+ jeux de donn\'ees), j'automatise des pipelines statistiques et je co-construis la strat\'egie de gouvernance des donn\'ees de l'Etat. Auparavant, j'ai dirig\'e la production de l'Indice suisse des prix \`a la consommation \`a l'Office f\'ed\'eral de la statistique pendant trois ans et demi, avec des flux mensuels d'environ 100'000 prix issus de sources h\'et\'erog\`enes. Ce parcours de sept ans dans le secteur public r\'egul\'e m'a appris \`a concilier rigueur m\'ethodologique, qualit\'e document\'ee et livraison fiable d'analyses.
+
+\lettersection{Pourquoi la FINMA ?}
+La FINMA occupe une place singuli\`ere dans l'\'ecosyst\`eme suisse : autorit\'e ind\'ependante au service de l'int\'er\^et g\'en\'eral, garante de la stabilit\'e et de l'int\'egrit\'e du syst\`eme financier. Ce mandat fait \'echo \`a ce qui guide mon travail depuis sept ans : produire des donn\'ees fiables pour soutenir la d\'ecision publique. Le poste m'int\'eresse particuli\`erement parce qu'il combine la responsabilit\'e bout-en-bout d'une pipeline de donn\'ees, le r\^ole de Data Steward et la production d'analyses reproductibles pour des stakeholders m\'etier. Le renforcement du Gesch\"aftsbereich Integrierte Risikoexpertise offre un cadre id\'eal pour contribuer \`a une plateforme analytique en construction et structurer ses standards de qualit\'e.
+
+\lettersection{Pourquoi moi ?}
+Mon exp\'erience recouvre les exigences du poste avec pr\'ecision. A Fribourg, je garantis la qualit\'e, la coh\'erence et la documentation de plus de cent jeux de donn\'ees, et j'ai automatis\'e une dizaine de cha\^ines de production en Python, SQL et dbt en remplacement de processus manuels Excel. Je con\c cois aussi des tableaux de bord Power BI pour les d\'ecideurs cantonaux. En compl\'ement, j'ai d\'evelopp\'e des projets de data engineering visibles sur vmonney.github.io/portfolio, dont une plateforme analytique appliqu\'ee \`a plus de 100'000 commandes e-commerce avec architecture trois niveaux, contr\^oles Soda Core et dbt tests. C\^ot\'e langues, le fran\c cais est ma langue maternelle ; mon allemand professionnel est mobilis\'e dans mes mandats f\'ed\'eraux et cantonaux, et je pratique l'anglais au quotidien. Je n'ai pas d'exp\'erience directe dans la finance, mais ma ma\^itrise des donn\'ees r\'egul\'ees et confidentielles (sant\'e et social) constitue un socle de transfert solide pour la surveillance des march\'es.
+
+Je serais heureux de pouvoir vous pr\'esenter plus en d\'etail mon parcours et ma motivation lors d'un entretien. Je vous remercie de l'attention port\'ee \`a mon dossier.
+
+\end{cvletter}
+
+\makeletterclosing
+
+\end{document}
